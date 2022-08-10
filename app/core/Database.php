@@ -10,7 +10,6 @@ class Database
         if (!self::$factory) {
             self::$factory = new Database();
         }
-
         return self::$factory;
     }
 

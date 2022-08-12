@@ -4,10 +4,9 @@ class User extends Model
 {
     private string $error = "";
 
-    public function register($POST)
+    public function register($POST, $sql)
     {
         $POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
-
         $data = [
             "username" => trim($POST["username"]),
             "email" => trim($POST["email"]),

@@ -5,7 +5,6 @@ class Model
 {
     public static function sql(array $data = null): ?array
     {
-
         if ($data) {
             $params = [];
 
@@ -239,5 +238,3 @@ class Model
         return $response;
     }
 }
-
-$a = new Database();

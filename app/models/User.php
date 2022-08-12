@@ -4,7 +4,7 @@ class User extends Model
 {
     private string $error = "";
 
-    public function register($POST, $sql)
+    public function register($POST)
     {
         $POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
         $data = [
@@ -13,7 +13,7 @@ class User extends Model
             "password" => trim($POST["password"]),
             "passwordRepeat" => trim($POST["passwordRepeat"]),
         ];
-        Debug::get($data);
+
     }
 
     public function login($POST)

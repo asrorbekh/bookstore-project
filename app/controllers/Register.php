@@ -8,10 +8,9 @@ class Register extends Controller
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            Debug::get($_POST);
-
             $user = $this->model("User");
             $user->register($_POST);
+
         }
 
         $this->view("market/register", $data);

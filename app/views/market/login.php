@@ -18,7 +18,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Password</label>
-                        <a class="float-end" href="/reset">Forgot?</a>
+                        <a class="float-end" href="/reset"><!-- Reset--></a>
                         <input name="password" class="form-control" placeholder="******" type="password"
                                autocomplete="false" required="required">
                     </div> <!-- col end.// -->

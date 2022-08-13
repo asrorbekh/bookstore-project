@@ -4,10 +4,13 @@
     <div class="container">
         <!-- ====== COMPONENT LOGIN  ====== -->
         <div class="card shadow mx-auto" style="max-width:400px; margin-top:40px;">
+
             <div class="card-body">
                 <h4 class="mb-4">Register</h4>
                 <form method="post" autocomplete="off">
                     <div class="mb-3">
+                        <div class="alert-danger"><?php Debug::checkError(); ?></div>
+                        <br>
                         <label class="form-label">Username</label>
                         <input name="username" class="form-control" placeholder="ex. jhonkennedy" type="text"
                                autocomplete="off" required="required">

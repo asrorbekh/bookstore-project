@@ -8,12 +8,10 @@
                 <h4 class="mb-4">Login</h4>
                 <form method="post" autocomplete="off">
                     <div class="mb-3">
-                        <div class="alert alert-danger alert-message">Неверный логин или пароль</div>
-                        <div class="alert alert-success d-none">Данные успешно изменены!</div>
+                        <div class="=alert alert-danger"><?php Debug::checkError(); ?></div>
                         <label class="form-label">Email</label>
                         <input name="email" class="form-control" placeholder="ex. name@gmail.com" type="email"
                                autocomplete="off" required="required">
-                        <div class="invalid-feedback">Неверный номер телефона</div>
                     </div> <!-- col end.// -->
 
                     <div class="mb-3">

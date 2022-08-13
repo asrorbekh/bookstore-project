@@ -2,16 +2,14 @@
 
 class User extends Model
 {
-    public string $error = "";
-    public array $get;
-    public array $data=[];
+    private string $error = "";
 
     public function register($POST)
     {
         $POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
         Database::get()->connect();
         $data = [
-            "url_address" => $this->generateRandomString(),
+            "user_url" => $this->generateRandomString(),
             "username" => trim($POST["username"]),
             "email" => trim($POST["email"]),
             "password" => trim($POST["password"]),
@@ -23,38 +21,26 @@ class User extends Model
             $this->error .= "Please enter valid username <br>";
         }
 
-        if (!preg_match("/^[a-zA-Z_-]+@[a-zA-Z]+.[a-zA-Z]+$/", $data["email"])) {
+        if (!filter_var($data["email"], FILTER_VALIDATE_EMAIL)) {
             $this->error .= "Please enter valid email <br>";
         }
 
         if ($data["password"] !== $data["passwordRepeat"]) {
-            $this->error .= "Password do not match";
+            $this->error .= "Password do not match<br>";
         }
 
         if (strlen($data["password"]) < 6) {
-            $this->error .= "Password must be at least 6 characters long";
+            $this->error .= "Password must be at least 6 characters long <br>";
         }
 
-        $this->get['user'] = Model::get([
-            "table" => "users",
-            "where" => [
-                "email" => $data["email"]
-            ],
-            [
-                "limit" => 1
-            ]]);
-
-        if ($this->get["user"]) {
-            if (is_object($this->get["user"]) && property_exists($this->get["user"], "id")) {
-                $this->data["error"] = "";
-            }
+        if (empty($data["username"]) && empty($data["email"]) && empty($data["password"]) && empty($data["passwordRepeat"])) {
+            $this->error .= "Please input fields";
         }
-
 
         if ($this->error == "") {
             $sql = "INSERT INTO `users`(`user_url`, `username`, `email`, `password`, `date`) VALUES (:user_url,:username,:email,:password,:date)";
             $params = [
-                ":user_url" => $data["url_address"],
+                ":user_url" => $data["user_url"],
                 ":username" => $data["username"],
                 ":email" => $data["email"],
                 ":password" => $data["password"],
@@ -65,22 +51,22 @@ class User extends Model
                 header("Location: /login");
                 exit();
             }
-        } else {
-            header("Location: /_404");
-            exit();
         }
+        $_SESSION["error"] = $this->error;
+
     }
 
     public function login($POST)
     {
-
+        header("Location: /");
     }
 
     public function reset($POST)
     {
+
     }
 
-    private function generateRandomString()
+    private function generateRandomString(): string
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
         $charactersLength = strlen($characters);

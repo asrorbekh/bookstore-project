@@ -49,9 +49,15 @@
                 </div>
                 <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                     <div class="float-end">
+                        <?php if (!isset($_SESSION['username'])): ?>
                         <a href="/login" class="btn btn-light">
                             <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Login</span>
                         </a>
+                        <?php else: ?>
+                        <a href="/profile" class="btn btn-light">
+                            <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Profile</span>
+                        </a>
+                        <?php endif; ?>
                         <a href="/wishlist" class="btn btn-light">
                             <i class="fa fa-heart"></i> <span class="ms-1 d-none d-sm-inline-block">Wishlist</span>
                         </a>

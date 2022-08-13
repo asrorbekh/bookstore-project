@@ -9,8 +9,17 @@ class Debug
             print_r($data);
             echo '</pre>';
         }
+
         if ($exit) {
             exit;
+        }
+    }
+
+    public static function checkError(): void
+    {
+        if (isset($_SESSION["error"]) && $_SESSION["error"] !== "") {
+            echo $_SESSION["error"];
+            unset($_SESSION["error"]);
         }
     }
 }

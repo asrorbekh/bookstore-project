@@ -41,6 +41,8 @@ if (!ini_get('date.timezone')) {
 try {
 
     session_start();
+    include "../app/config/core.php";
+
     require("../app/autoload.php");
 
     if (DEVELOPER_MODE) {

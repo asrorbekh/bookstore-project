@@ -31,6 +31,7 @@ class App
         } catch (Error) {
             header("Location: /_404");
         }
+
     }
 
     private function getUrl(): array

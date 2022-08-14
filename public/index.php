@@ -45,7 +45,7 @@ try {
 
     require("../app/autoload.php");
 
-    if (DEVELOPER_MODE) {
+    if (DEBUG) {
         error_reporting(E_ALL);
         ini_set("display_errors", 1);
     } else {

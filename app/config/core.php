@@ -13,9 +13,4 @@ const DB_CHARSET = "utf8mb4";
 const DEVELOPER_MODE = true;
 const DEBUG = true;
 
-if (DEBUG) {
-    error_reporting(E_ALL);
-    ini_set("display_errors", 1);
-} else {
-    ini_set("display_errors", 0);
-}
+

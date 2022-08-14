@@ -9,7 +9,7 @@ class User
         $POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
         Database::get()->connect();
         $data = [
-            "user_url" => $this->generateRandomString(),
+            "user_url" => Functions::generateRandomString(),
             "username" => trim($POST["username"]),
             "email" => trim($POST["email"]),
             "password" => trim($POST["password"]),
@@ -90,17 +90,6 @@ class User
     public function reset($POST)
     {
 
-    }
-
-    private function generateRandomString(): string
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < 15; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString;
     }
 
 }

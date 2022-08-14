@@ -9,7 +9,7 @@
                 <h4 class="mb-4">Register</h4>
                 <form method="post" autocomplete="off">
                     <div class="mb-3">
-                        <div class="alert-danger"><?php Debug::checkError(); ?></div>
+                        <div class="alert-danger"><?php Functions::checkError(); ?></div>
                         <br>
                         <label class="form-label">Username</label>
                         <input name="username" class="form-control" placeholder="ex. jhonkennedy" type="text"

@@ -28,8 +28,9 @@ class App
         try {
             $this->params = $url ? array_values($url) : [];
             call_user_func_array([$this->controller, $this->method], $this->params);
-        } catch (Error) {
-            header("Location: /_404");
+        } catch (Error $e) {
+            Debug::get($e);
+            // header("Location: /_404");
         }
 
     }

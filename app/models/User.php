@@ -1,6 +1,6 @@
 <?php
 
-class User extends Model
+class User
 {
     private string $error = "";
 
@@ -38,12 +38,13 @@ class User extends Model
         }
 
         if ($this->error == "") {
+
             $sql = "INSERT INTO `users`(`user_url`, `username`, `email`, `password`, `date`) VALUES (:user_url,:username,:email,:password,:date)";
             $params = [
                 ":user_url" => $data["user_url"],
                 ":username" => $data["username"],
                 ":email" => $data["email"],
-                ":password" => $data["password"],
+                ":password" => password_hash($data["password"], PASSWORD_DEFAULT),
                 ":date" => $data["date"],
             ];
             $result = Model::insert($sql, $params);
@@ -58,7 +59,32 @@ class User extends Model
 
     public function login($POST)
     {
-        header("Location: /");
+        $POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
+        Database::get()->connect();
+        $data = [
+            "email" => trim($POST["email"]),
+            "password" => trim($POST["password"]),
+        ];
+
+
+        if (!filter_var($data["email"], FILTER_VALIDATE_EMAIL)) {
+            $this->error .= "Please enter valid email <br>";
+        }
+
+        if (strlen($data["password"]) < 6) {
+            $this->error .= "Password must be at least 6 characters long <br>";
+        }
+
+        if (empty($data["username"]) && empty($data["email"]) && empty($data["password"]) && empty($data["passwordRepeat"])) {
+            $this->error .= "Please enter value";
+        }
+
+        if ($this->error == "") {
+
+
+        }
+
+        $_SESSION["error"] = $this->error;
     }
 
     public function reset($POST)

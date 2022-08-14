@@ -8,7 +8,8 @@
                 <h4 class="mb-4">Login</h4>
                 <form method="post" autocomplete="off">
                     <div class="mb-3">
-                        <div class="=alert alert-danger"><?php Debug::checkError(); ?></div>
+                        <div class="alert-danger"><?php Debug::checkError(); ?></div>
+                        <br>
                         <label class="form-label">Email</label>
                         <input name="email" class="form-control" placeholder="ex. name@gmail.com" type="email"
                                autocomplete="off" required="required">

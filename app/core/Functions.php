@@ -21,4 +21,13 @@ class Functions
         return $randomString;
     }
 
+    public static function isLoggedIn(): bool
+    {
+        if (isset($_SESSION["auth_key"])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

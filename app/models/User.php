@@ -4,12 +4,12 @@ class User
 {
     private string $error = "";
 
-    public function register($POST)
+    public function register($POST): void
     {
         $POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
         Database::get()->connect();
         $data = [
-            "user_url" => Functions::generateRandomString(),
+            "auth_key" => Functions::generateRandomString(),
             "username" => trim($POST["username"]),
             "email" => trim($POST["email"]),
             "password" => trim($POST["password"]),
@@ -39,12 +39,12 @@ class User
 
         if ($this->error == "") {
 
-            $sql = "INSERT INTO `users`(`user_url`, `username`, `email`, `password`, `date`) VALUES (:user_url,:username,:email,:password,:date)";
+            $sql = "INSERT INTO `users`(`auth_key`, `username`, `email`, `password`, `date`) VALUES (:auth_key,:username,:email,:password,:date)";
             $params = [
-                ":user_url" => $data["user_url"],
+                ":auth_key" => $data["auth_key"],
                 ":username" => $data["username"],
                 ":email" => $data["email"],
-                ":password" => password_hash($data["password"], PASSWORD_DEFAULT),
+                ":password" => $data["password"],
                 ":date" => $data["date"],
             ];
             $result = Model::insert($sql, $params);
@@ -59,6 +59,7 @@ class User
 
     public function login($POST)
     {
+
         $POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
         Database::get()->connect();
         $data = [
@@ -81,7 +82,16 @@ class User
 
         if ($this->error == "") {
 
+            $sql = "SELECT * FROM users WHERE email = :email AND password = :password";
+            $result = Model::read($sql, $data);
 
+            if (is_array($result)) {
+                $_SESSION["auth_key"] = $result[0]->auth_key;
+                header("Location: /profile");
+                exit();
+            }
+
+            $this->error .= "Wrong username";
         }
 
         $_SESSION["error"] = $this->error;
@@ -90,6 +100,14 @@ class User
     public function reset($POST)
     {
 
+    }
+
+    public function logout(): void
+    {
+        if (isset($_SESSION["auth_key"])) {
+            unset($_SESSION["auth_key"]);
+            header("Location: /");
+        }
     }
 
 }

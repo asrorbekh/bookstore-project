@@ -54,6 +54,7 @@ try {
 
     $app = new App();
 
+
 } catch (Exception $e) {
 
     ob_get_contents();

@@ -49,7 +49,7 @@
                 </div>
                 <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                     <div class="float-end">
-                        <?php if (!isset($_SESSION['username'])): ?>
+                        <?php if (!isset($_SESSION["auth_key"])): ?>
                         <a href="/login" class="btn btn-light">
                             <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Login</span>
                         </a>
@@ -67,7 +67,7 @@
                     </div>
                 </div> <!-- col end.// -->
                 <div class="col-lg-5 col-md-12 col-12">
-                    <form action="#" class="">
+                    <form class="">
                         <div class="input-group">
                             <input type="search" class="form-control" style="width:55%" placeholder="Search">
                             <!--                            <select class="form-select">-->

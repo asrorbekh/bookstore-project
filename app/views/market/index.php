@@ -31,12 +31,12 @@
                     <figure class="card card-product-grid">
                         <a href="#" class="img-wrap">
                             <!--                            <span class="topbar"> <b class="badge bg-success"> Offer </b> </span>-->
-                            <img src="../../../public/assets/images/items/12.jpg">
+                            <img src="../../../public/assets/images/items/12.jpg" alt="img">
                         </a>
                         <figcaption class="info-wrap border-top">
                             <a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                             <a href="#" class="title text-truncate">Blue T-shirt for Men</a>
-                            <small class="text-muted">Sizes: S, M, XL</small>
+                            <small class="text-muted">Author: Frank S.O</small>
                             <div class="price-wrap">
                                 <span class="price">$15.90</span>
                                 <del class="price-old">$20</del>
@@ -44,158 +44,8 @@
                         </figcaption>
                     </figure>
                 </div> <!-- col end.// -->
+                <a href="/books" class="btn-warning" style="text-align: center; height: 40px">View</a>
 
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <figure class="card card-product-grid">
-                        <a href="#" class="img-wrap">
-                            <img src="../../../public/assets/images/items/11.jpg">
-                        </a>
-                        <figcaption class="info-wrap border-top">
-                            <a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                            <a href="#" class="title text-truncate">Warm Winter Jacket</a>
-                            <small class="text-muted">Sizes: S, M, XL</small>
-                            <div class="price">$72.90</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </figure>
-                </div> <!-- col end.// -->
-
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <figure class="card card-product-grid">
-                        <a href="#" class="img-wrap">
-                            <img src="../../../public/assets/images/items/10.jpg" alt="item">
-                        </a>
-                        <figcaption class="info-wrap border-top">
-                            <a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                            <a href="#" class="title text-truncate">Mens T-shirt Cotton Base</a>
-                            <small class="text-muted">Blue, White, Black</small>
-                            <div class="price">$29.98</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </figure>
-                </div> <!-- col end.// -->
-
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <figure class="card card-product-grid">
-                        <a href="#" class="img-wrap">
-                            <img src="../../../public/assets/images/items/9.jpg">
-                        </a>
-                        <figcaption class="info-wrap border-top">
-                            <a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                            <a href="#" class="title text-truncate">Men's Denim Shorts Jeans</a>
-                            <small class="text-muted">Blue, White, Black</small>
-                            <div class="price">$75.50</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </figure>
-                </div> <!-- col end.// -->
-
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <figure class="card card-product-grid">
-                        <a href="#" class="img-wrap">
-                            <img src="../../../public/assets/images/items/5.jpg">
-                        </a>
-                        <figcaption class="info-wrap border-top">
-                            <a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                            <a href="#" class="title text-truncate">Apple Watch Series 1 Sport Case 38mm Black</a>
-                            <small class="text-muted">5GB, 10GB, 24GB</small>
-                            <div class="price">$75.50</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </figure>
-                </div> <!-- col end.// -->
-
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <figure class="card card-product-grid">
-                        <a href="#" class="img-wrap">
-                            <img src="../../../public/assets/images/items/6.jpg">
-                        </a>
-                        <figcaption class="info-wrap border-top">
-                            <a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                            <a href="#" class="title text-truncate">Gaming Headset 32db Black built in mic</a>
-                            <small class="text-muted">Black, Blue, Green</small>
-                            <div class="price">$99.50</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </figure>
-                </div> <!-- col end.// -->
-
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <figure class="card card-product-grid">
-                        <a href="#" class="img-wrap">
-                            <img src="../../../public/assets/images/items/7.jpg">
-                        </a>
-                        <figcaption class="info-wrap border-top">
-                            <a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                            <a href="#" class="title text-truncate">Gaming Headset 32db Black built in mic</a>
-                            <small class="text-muted">Sizes: S, M, XL</small>
-                            <div class="price">$41.50</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </figure>
-                </div> <!-- col end.// -->
-
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <figure class="card card-product-grid">
-                        <a href="#" class="img-wrap">
-                            <img src="../../../public/assets/images/items/8.jpg">
-                        </a>
-                        <figcaption class="info-wrap border-top">
-                            <a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                            <a href="#" class="title text-truncate">Slim fit T-shirt for men</a>
-                            <small class="text-muted">Sizes: S, M, XL</small>
-                            <div class="price">$75.50</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </figure>
-                </div> <!-- col end.// -->
-            </div> <!-- row end.// -->
-
-        </div> <!-- container end.// -->
-    </section>
-
-    <section class="padding-top">
-        <div class="container">
-            <div class="row gy-4">
-                <aside class="col-lg-6">
-                    <article class="card-banner bg-gray h-100" style="min-height: 200px">
-                        <div class="p-3 p-lg-5" style="max-width:70%">
-                            <h3> Best products & brands in our store at 80% off</h3>
-                            <p>That's true but not always</p>
-                            <a class="btn btn-warning" href="#"> Claim offer </a>
-                        </div>
-                        <img src="../../../public/assets/images/banners/banner-item2.jpg" height="350"
-                             class="img-bg">
-                    </article>
-                </aside> <!-- col.// -->
-                <aside class="col-lg-6">
-
-                    <div class="row mb-4">
-                        <div class="col-6">
-                            <article class="card bg-primary" style="min-height: 200px">
-                                <div class="card-body">
-                                    <h5 class="text-white">Gaming toolset</h5>
-                                    <p class="text-white-50">Technology for cyber sport </p>
-                                    <a class="btn btn-outline-light btn-sm" href="#">Learn more</a>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-6">
-                            <article class="card bg-primary" style="min-height: 200px">
-                                <div class="card-body">
-                                    <h5 class="text-white">Quality sound</h5>
-                                    <p class="text-white-50">All you need for music</p>
-                                    <a class="btn btn-outline-light btn-sm" href="#">Learn more</a>
-                                </div>
-                            </article>
-                        </div>
-                    </div> <!-- row.// -->
-
-                    <article class="card bg-success" style="min-height: 200px">
-                        <div class="card-body">
-                            <h5 class="text-white">Buy 2 items, With special gift</h5>
-                            <p class="text-white-50" style="max-width:400px;">Buy one, get one free marketing strategy
-                                helps
-                                your business improves the brand by sharing the profits </p>
-                            <a class="btn btn-outline-light btn-sm" href="#">Learn more</a>
-                        </div>
-                    </article>
-
-                </aside> <!-- col.// -->
-            </div> <!-- row.// -->
         </div> <!-- container end.// -->
     </section>
 

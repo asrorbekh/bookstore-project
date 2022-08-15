@@ -23,14 +23,31 @@
 
                     <div class="mb-3">
                         <label class="form-label">Password</label>
-                        <input name="password" class="form-control" placeholder="******" type="password"
+                        <input name="password" class="form-control" placeholder="******" type="password" id="logPass"
                                required="required">
                     </div> <!-- col end.// -->
                     <div class="mb-3">
                         <label class="form-label"> Repeat password</label>
-                        <input name="passwordRepeat" class="form-control" placeholder="******" type="password"
+                        <input name="passwordRepeat" class="form-control" placeholder="******" type="password" id="logPass"
                                required="required">
                     </div> <!-- col end.// -->
+                    <div class="mb-3">
+                        <label class="form-check">
+                            <input class="form-check-input" type="checkbox" onclick="myFunction()">
+                            <span class="form-check-label" style="-webkit-user-select: none;"> Show password </span>
+                        </label>
+                    </div>
+
+                    <script>
+                        function myFunction() {
+                            var x = document.getElementById("logPass");
+                            if (x.type === "password") {
+                                x.type = "text";
+                            } else {
+                                x.type = "password";
+                            }
+                        }
+                    </script>
 
                     <button class="btn w-100 btn-primary" type="submit"> Register</button>
 

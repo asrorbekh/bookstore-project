@@ -237,4 +237,32 @@ class Model
         }
         return $response;
     }
+
+    public static function read($sql, $data = []): bool|array
+    {
+        $database = Database::get()->connect()->prepare($sql);
+
+        $result = $database->execute($data);
+
+        if ($result) {
+            $data = $database->fetchAll(PDO::FETCH_OBJ);
+            if ($data && count($data) > 0) {
+                return $data;
+            }
+        }
+        return false;
+    }
+
+    public static function write($sql, $data = []): bool|array
+    {
+        $database = Database::get()->connect()->prepare($sql);
+
+        $result = $database->execute($data);
+
+        if ($result) {
+            return true;
+        }
+        return false;
+    }
+
 }

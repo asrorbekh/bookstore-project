@@ -10,7 +10,7 @@
         <!-- ================ COMPONENT SUPPORT ================ -->
         <div class="card">
             <article class="p-4 p-xl-5 text-center">
-                <img src="../../../public/assets/images/avatars/avatar1.jpg" class="img-avatar img-md" alt="">
+                <img src="../../../public/assets/images/avatars/avatar1.jpg" class="img-avatar img-md" alt="img">
                 <h6 class="card-title mt-3">Customer support</h6>
                 <p>
                     Call: <a href="tel:+998123456789">+998123456789</a> <br>

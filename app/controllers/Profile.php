@@ -5,7 +5,6 @@ class Profile extends Controller
     public function index()
     {
         if (!Functions::isLoggedIn()) {
-            echo "<script>alert('Your are not logged in')</script>";
             header("Location: /login");
             exit();
         }
@@ -15,8 +14,12 @@ class Profile extends Controller
 
     public function edit()
     {
+        if (!Functions::isLoggedIn()) {
+            header("Location: /login");
+            exit();
+        }
         $data["page_title"] = "Settings";
-        $this->view("market/settings",$data);
+        $this->view("market/settings", $data);
     }
 
     public function logout()

@@ -44,7 +44,6 @@
                         </figcaption>
                     </figure>
                 </div> <!-- col end.// -->
-                <a href="/books" class="btn-warning" style="text-align: center; height: 40px">View</a>
 
         </div> <!-- container end.// -->
     </section>

@@ -23,6 +23,7 @@ class Functions
 
     public static function isLoggedIn(): bool
     {
+        Database::get()->connect();
         if (isset($_SESSION["auth_key"])) {
             return true;
         } else {

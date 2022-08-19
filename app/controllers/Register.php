@@ -10,6 +10,7 @@ class Register extends Controller
 
             $user = $this->model("User");
             $user->register($_POST);
+            exit();
 
         }
 

@@ -17,7 +17,7 @@ class User
             "date" => date("Y-m-d H:i:s")
         ];
 
-        if (!preg_match("/^[a-zA-Z]+$/", $data["username"])) {
+        if (!preg_match("/^[a-zA-Z\d]+$/", $data["username"])) {
             $this->error .= "Please enter valid username <br>";
         }
 
@@ -29,12 +29,19 @@ class User
             $this->error .= "Password do not match<br>";
         }
 
-        if (strlen($data["password"]) < 6) {
-            $this->error .= "Password must be at least 6 characters long <br>";
+        if (!preg_match("/^[a-zA-Z\d]+$/", $data["password"]) && !preg_match("/^[a-zA-Z\d]+$/", $data["passwordRepeat"])) {
+            $this->error .= "Please enter valid password <br>";
         }
 
-        if (empty($data["username"]) && empty($data["email"]) && empty($data["password"]) && empty($data["passwordRepeat"])) {
-            $this->error .= "Please input fields";
+        if (strlen($data["password"]) < 6 && strlen($data["passwordRepeat"]) > 12) {
+            $this->error .= "Password must be at least 6 characters long and maximal 12<br>";
+        }
+
+        $sql = "SELECT * FROM users WHERE email = :email LIMIT 1";
+        $arr[":email"] = $data["email"];
+        $result = Model::read($sql, $arr);
+        if (is_array($result)) {
+            $this->error .= "Email already in use";
         }
 
         if ($this->error == "") {
@@ -59,7 +66,6 @@ class User
 
     public function login($POST)
     {
-
         $POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
         Database::get()->connect();
         $data = [
@@ -67,18 +73,17 @@ class User
             "password" => trim($POST["password"]),
         ];
 
-
         if (!filter_var($data["email"], FILTER_VALIDATE_EMAIL)) {
             $this->error .= "Please enter valid email <br>";
         }
 
         if (strlen($data["password"]) < 6) {
-            $this->error .= "Password must be at least 6 characters long <br>";
+            $this->error .= "Password must be at least 6 characters long and max 12 <br>";
         }
 
-        if (empty($data["username"]) && empty($data["email"]) && empty($data["password"]) && empty($data["passwordRepeat"])) {
-            $this->error .= "Please enter value";
-        }
+//        if (empty($data["username"]) && empty($data["email"]) && empty($data["password"]) && empty($data["passwordRepeat"])) {
+//            $this->error .= "Please enter value";
+//        }
 
         if ($this->error == "") {
 
@@ -86,12 +91,15 @@ class User
             $result = Model::read($sql, $data);
 
             if (is_array($result)) {
+
                 $_SESSION["auth_key"] = $result[0]->auth_key;
+                $_SESSION["username"] = $result[0]->username;
+
                 header("Location: /profile");
                 exit();
             }
 
-            $this->error .= "Wrong username";
+            $this->error .= "Wrong email or password";
         }
 
         $_SESSION["error"] = $this->error;
@@ -100,6 +108,40 @@ class User
     public function reset($POST)
     {
 
+        $POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
+        Database::get()->connect();
+        $data = [
+            "password" => trim($POST["password"]),
+            "newPassword" => trim($POST["newPassword"]),
+            "rePassword" => trim($POST["rePassword"])
+        ];
+
+        if ($data["newPassword"] !== $data["rePassword"]) {
+            $this->error .= "Password do not match<br>";
+        }
+
+        if (strlen($data["password"]) < 6) {
+            $this->error .= "Password must be at least 6 characters long and max 12 <br>";
+        }
+
+        if ($this->error == "") {
+
+            $sql = 'UPDATE `users` SET `password`= :password WHERE auth_key=:auth_key';
+            $arr[":password"] = $data["password"];
+            $result = Model::read($sql, $arr);
+
+            if (is_array($result)) {
+
+                $_SESSION["password"] = $result[0]->password;
+
+
+                header("Location: /profile");
+                exit();
+            }
+
+            $this->error .= "Wrong password";
+        }
+        $_SESSION["error"] = $this->error;
     }
 
     public function logout(): void

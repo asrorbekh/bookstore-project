@@ -34,6 +34,8 @@
     <!-- Font awesome 5 -->
     <link href="../../../public/assets/fonts/fontawesome/css/all.min.css" type="text/css"
           rel="stylesheet">
+<!--    <script src="//code.jivosite.com/widget/31bmw2GARo" async></script>-->
+
 </head>
 <body class="bg-light">
 
@@ -42,7 +44,7 @@
         <div class="container">
             <div class="row gy-3 align-items-center">
                 <div class="col-lg-2 col-sm-4 col-4">
-                    <a href="https://book.asrorbek.uz/" class="navbar-brand">
+                    <a href="http://bookly.uz" class="navbar-brand">
                         <img class="logo" height="40" src="../../../public/assets/images/logo.svg"
                              alt="Site logo">
                     </a>
@@ -103,7 +105,7 @@
                         <a class="nav-link" href="/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/gift">Gifts</a>
+                        <a class="nav-link" href="/help">Help</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/blog">Blog</a>

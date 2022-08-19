@@ -7,9 +7,4 @@ class Help extends Controller
         $data["page_title"] = "Help";
         $this->view("market/help",$data);
     }
-
-    public function chat()
-    {
-
-    }
 }

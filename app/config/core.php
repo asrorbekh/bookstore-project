@@ -8,9 +8,9 @@ const DB_NAME = "asrorbek_bookly";
 const DB_USER = "root";
 const DB_PASS = "";
 const DB_CHARSET = "utf8mb4";
-//const DB_PORT = 3360;
+const DB_PORT = 3307;
 
-const DSN = DB_DRIVER . ":host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+const DSN = DB_DRIVER . ":host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=".DB_PORT.";charset=" . DB_CHARSET;
 
 const OPTIONS = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

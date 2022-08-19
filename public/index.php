@@ -54,7 +54,6 @@ try {
 
     $app = new App();
 
-
 } catch (Exception $e) {
 
     ob_get_contents();
@@ -67,8 +66,7 @@ try {
     $response->code = $e->getCode();
     $response->message = $e->getMessage();
 
-    echo json_encode($response);
-    exit;
+    Response::json($response);
 }
 
 ?>

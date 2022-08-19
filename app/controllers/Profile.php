@@ -18,18 +18,23 @@ class Profile extends Controller
             header("Location: /login");
             exit();
         }
-        $data["page_title"] = "Settings";
-        $this->view("market/settings", $data);
+        $data["page_title"] = "Edit profile";
+        $this->view("market/editProfile", $data);
     }
 
     public function logout()
     {
+        if (!Functions::isLoggedIn()) {
+            header("Location: /login");
+            exit();
+        }
         $user = $this->model("User");
         $user->logout();
     }
 
     public function settings()
     {
-
+        $data["page_title"] = "Settings";
+        $this->view("market/settings",$data);
     }
 }

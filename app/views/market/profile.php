@@ -27,8 +27,8 @@
                     <a class="nav-link" href="#">Orders history</a>
                     <a class="nav-link" href="#">My wishlist</a>
                     <a class="nav-link" href="#">Transactions</a>
-                    <a class="nav-link" href="/profile/settings">Profile setting</a>
-                    <a class="nav-link" href="/profile/logout">Log out</a>
+                    <a class="nav-link" href="/profile/settings"><span style="color: #00a524">Profile setting</span></a>
+                    <a class="nav-link" href="/profile/logout"><span style="color: red">Log out</span></a>
                 </nav>
                 <!--   COMPONENT MENU LIST END .//   -->
             </aside>
@@ -43,9 +43,9 @@
         </span>
                             </div>
                             <figcaption class="info">
-                                <h6 class="title"><?= $_SESSION["auth_key"]?></h6>
-                                <p>Email: <?= $_SESSION["auth_key"]?>, Phone: +1234567890988
-                                    <a href="/profile/edit" class="px-2"><i class="fa fa-pen"></i></a>
+                                <h6 class="title"><?= $_SESSION["username"]?></h6>
+                                <p>Email: <?= $_SESSION["username"]?>, Phone: +1234567890988
+                                    <a href="/reset" class="px-2"><i class="fa fa-pen"></i></a>
                                 </p>
                             </figcaption>
                         </figure>

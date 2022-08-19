@@ -17,7 +17,7 @@
                     <div class="mb-3">
                         <label class="form-label" style="-webkit-user-select: none;">Password</label>
                         <a class="float-end" href="/reset">
-                            <!-- Reset-->
+                             Reset
                         </a>
                         <input name="password" class="form-control" style="-webkit-user-select: none;" placeholder="******" type="password" id="logPass" autocomplete="false" required="required">
                     </div> <!-- col end.// -->

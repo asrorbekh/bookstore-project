@@ -64,7 +64,7 @@ class User
 
     }
 
-    public function login($POST)
+    public function login($POST): void
     {
         $POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
         Database::get()->connect();
@@ -105,7 +105,7 @@ class User
         $_SESSION["error"] = $this->error;
     }
 
-    public function reset($POST)
+    public function reset($POST): void
     {
 
         $POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);

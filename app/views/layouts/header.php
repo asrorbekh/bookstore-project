@@ -69,15 +69,15 @@
                     </div>
                 </div> <!-- col end.// -->
                 <div class="col-lg-5 col-md-12 col-12">
-                    <form class="">
+                    <form class="" method="get">
                         <div class="input-group">
-                            <input type="search" class="form-control" style="width:55%" placeholder="Search">
-                            <!--                            <select class="form-select">-->
-                            <!--                                <option value="">All type</option>-->
-                            <!--                                <option value="codex">Special</option>-->
-                            <!--                                <option value="comments">Only best</option>-->
-                            <!--                                <option value="content">Latest</option>-->
-                            <!--                            </select>-->
+                            <input type="search" name="query" class="form-control" style="width:55%" placeholder="Search">
+                                                        <select name="category" class="form-select">
+                                                            <option name="all" value="all">All type</option>
+                                                            <option value="codex">Special</option>
+                                                            <option value="comments">Only best</option>
+                                                            <option value="content">Latest</option>
+                                                        </select>
                             <button class="btn btn-primary">
                                 <i class="fa fa-search"></i>
                             </button>

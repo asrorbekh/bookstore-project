@@ -10,7 +10,7 @@
                         <div class="mb-3">
                             <div class="alert-danger"><?php Functions::checkError(); ?></div>
                             <br>
-                            <label class="form-label" style="-webkit-user-select: none;">Password</label>
+                            <label class="form-label" style="-webkit-user-select: none;">Current password</label>
                             <input name="password" class="form-control" style="-webkit-user-select: none;" placeholder="*******" id="logPass" type="password" autocomplete="off" required="required">
                         </div> <!-- col end.// -->
 
@@ -46,12 +46,10 @@
                             }
                         </script>
 
-                        <button class="btn w-100 btn-primary" type="submit"> Login</button>
+                        <button class="btn w-100 btn-primary" type="submit"> Reset</button>
 
                     </form action="/"> <!-- form end.// -->
 
-                    <p class="text-divider my-4" style="-webkit-user-select: none;">No account ? </p>
-                    <a href="/register" class="btn w-100 btn-light">Create new accaunt</a>
 
                 </div> <!-- card-body end.// -->
             </div> <!-- card .// -->

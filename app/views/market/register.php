@@ -40,7 +40,7 @@
 
                     <script>
                         function myFunction() {
-                            var x = document.getElementById("logPass");
+                            const x = document.getElementById("logPass");
                             if (x.type === "password") {
                                 x.type = "text";
                             } else {
@@ -59,7 +59,6 @@
             </div> <!-- card-body end.// -->
 
         </div> <!-- card .// -->
-
         <!-- ====== COMPONENT LOGIN  END.// ====== -->
 
         <br><br>

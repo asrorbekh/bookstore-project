@@ -1,23 +1,13 @@
 <?php
 
-
 try {
-
     session_start();
-    include "../app/config/core.php";
-
-    require("../app/autoload.php");
-
-    if (DEBUG) {
-        error_reporting(E_ALL);
-        ini_set("display_errors", 1);
-    } else {
-        error_reporting(0);
-    }
+    require "../app/config/core.php";
+    require "../app/autoload.php";
 
     $app = new App();
 
-} catch (Exception $e) {
+} catch (Error|PDOException|Exception $e) {
 
     ob_get_contents();
     ob_end_clean();
@@ -31,6 +21,3 @@ try {
 
     Response::json($response);
 }
-
-?>
-

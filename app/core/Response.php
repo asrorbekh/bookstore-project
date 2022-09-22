@@ -1,6 +1,5 @@
 <?php
 
-
 class Response
 {
     public static function json($data = false, bool $exit = true, bool $crossite = false): void

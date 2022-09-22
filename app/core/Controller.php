@@ -13,9 +13,13 @@ abstract class Controller
 
     protected function model($model)
     {
-        if (file_exists("../app/models/" . ucwords($model) . ".php")) {
-            include "../app/models/" . ucwords($model) . ".php";
-            return new $model();
+        try {
+            if (file_exists("../app/models/" . ucwords($model) . ".php")) {
+                include "../app/models/" . ucwords($model) . ".php";
+                return new $model();
+            }
+        } catch (Error $exception) {
+            Debug::get($exception);
         }
 
         return false;

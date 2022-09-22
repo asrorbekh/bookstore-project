@@ -1,13 +1,23 @@
 <?php
 
-class Login extends Controller
+class Auth extends Controller
 {
+
     public function index()
     {
-        if (Functions::isLoggedIn()) {
+        if (!Functions::isLoggedIn()){
+            header("Location: /auth/login");
+        }else{
             header("Location: /");
+        }
+    }
+    public function login(): void
+    {
+        if (Functions::isLoggedIn()) {
+            header("Location: /home");
             exit();
         }
+
         $data["page_title"] = "Login";
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {

@@ -109,7 +109,7 @@ class User
     {
 
         $POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
-        Database::get()->connect();
+
         $data = [
             "password" => trim($POST["password"]),
             "newPassword" => trim($POST["newPassword"]),
@@ -125,19 +125,14 @@ class User
         }
 
         if ($this->error == "") {
+            $pdo = Database::get()->connect();
+            $stmt = $pdo->prepare("SELECT name FROM users WHERE auth_key = :auth_key");
+            $stmt->bindParam(":auth_key", $_SESSION["auth_key"], PDO::PARAM_STR, 15);
+            $stmt->execute();
 
-            $sql = 'UPDATE `users` SET `password`= :password WHERE auth_key=:auth_key';
-            $arr[":password"] = $data["password"];
-            $result = Model::read($sql, $arr);
+            $result = $stmt->fetch(PDO::FETCH_OBJ);
 
-            if (is_array($result)) {
-
-                $_SESSION["password"] = $result[0]->password;
-
-
-                header("Location: /profile");
-                exit();
-            }
+            Debug::get($result);
 
             $this->error .= "Wrong password";
         }

@@ -30,7 +30,6 @@ class App
             Debug::get($e);
             // header("Location: /_404");
         }
-
     }
 
     private function getUrl(): array

@@ -27,6 +27,7 @@
             </header>
 
             <div class="row">
+            <?php foreach ($data as $datum): ?>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <figure class="card card-product-grid">
                         <a href="#" class="img-wrap">
@@ -34,7 +35,8 @@
                             <img src="../../../public/assets/images/items/12.jpg" alt="img">
                         </a>
                         <figcaption class="info-wrap border-top">
-                            <a href="/cart/order" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                            <a href="/cart/order" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i>
+                            </a>
                             <a href="#" class="title text-truncate">Blue T-shirt for Men</a>
                             <small class="text-muted">Author: Frank S.O</small>
                             <div class="price-wrap">
@@ -44,8 +46,8 @@
                         </figcaption>
                     </figure>
                 </div> <!-- col end.// -->
-
-        </div> <!-- container end.// -->
+                </div> <!-- container end.// -->
+            <?php endforeach; ?>
     </section>
 
     <section class="padding-y">

@@ -11,7 +11,7 @@
  */
 
 if(!in_array($_SERVER['REMOTE_ADDR'], ['31.148.166.205', '127.0.0.1', '192.168.31.232', '192.168.31.138', '192.168.31.243'] )){
-    echo 'Aka uzr sizga mumkinmas';
+    echo 'Aka uzr sizga mumkinmas <a href="/">Bosh sahifaga qayting</a>';
     http_response_code(403);
     exit;
 }

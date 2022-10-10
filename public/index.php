@@ -1,6 +1,7 @@
 <?php
 
 try {
+    session_name('session_id');
     session_start();
     require "../app/config/core.php";
     require "../app/autoload.php";

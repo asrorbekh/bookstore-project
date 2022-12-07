@@ -10,7 +10,7 @@
  * @license MIT
  */
 
-if(!in_array($_SERVER['REMOTE_ADDR'], ['31.148.166.205', '127.0.0.1', '192.168.31.232', '192.168.31.138', '192.168.31.243'] )){
+if (!in_array($_SERVER['REMOTE_ADDR'], ['31.148.166.205', '127.0.0.1', '192.168.31.232', '192.168.31.138', '192.168.31.243'])) {
     echo 'Aka uzr sizga mumkinmas <a href="/">Bosh sahifaga qayting</a>';
     http_response_code(403);
     exit;
@@ -48,7 +48,7 @@ if (isset($_GET['json'])) {
     echo json_encode($benchmarkResult, JSON_PRETTY_PRINT);
 } else {
     // html output
-    echo print_html_result($benchmarkResult, $showServerName);
+    print_html_result($benchmarkResult, $showServerName);
 }
 
 exit;
@@ -57,7 +57,7 @@ exit;
 // Benchmark functions
 // -----------------------------------------------------------------------------
 
-function test_benchmark(array $settings)
+function test_benchmark(array $settings): array
 {
     $result = [];
     $result['version'] = '1.6';
@@ -86,7 +86,7 @@ function test_benchmark(array $settings)
     return $result;
 }
 
-function test_math(&$result, $count = 99999)
+function test_math(&$result, $count = 99999): void
 {
     $timeStart = microtime(true);
 
@@ -109,7 +109,7 @@ function test_math(&$result, $count = 99999)
     $result['benchmark']['math'] = timer_diff($timeStart) . ' sec.';
 }
 
-function test_string(&$result, $count = 99999)
+function test_string(&$result, $count = 99999): void
 {
     $timeStart = microtime(true);
 
@@ -131,7 +131,7 @@ function test_string(&$result, $count = 99999)
     $result['benchmark']['string'] = timer_diff($timeStart) . ' sec.';
 }
 
-function test_loops(&$result, $count = 999999)
+function test_loops(&$result, $count = 999999): void
 {
     $timeStart = microtime(true);
     for ($i = 0; $i < $count; ++$i) {
@@ -145,7 +145,7 @@ function test_loops(&$result, $count = 999999)
     $result['benchmark']['loops'] = timer_diff($timeStart) . ' sec.';
 }
 
-function test_ifelse(&$result, $count = 999999)
+function test_ifelse(&$result, $count = 999999): void
 {
     $timeStart = microtime(true);
     for ($i = 0; $i < $count; $i++) {
@@ -159,7 +159,7 @@ function test_ifelse(&$result, $count = 999999)
     $result['benchmark']['ifelse'] = timer_diff($timeStart) . ' sec.';
 }
 
-function test_mysql(&$result, $settings)
+function test_mysql(&$result, $settings): array
 {
     $timeStart = microtime(true);
 
@@ -185,15 +185,16 @@ function test_mysql(&$result, $settings)
     return $result;
 }
 
-function timer_diff($timeStart)
+function timer_diff($timeStart): string
 {
     return number_format(microtime(true) - $timeStart, 3);
 }
 
-function print_html_result(array $data, bool $showServerName = true)
+function print_html_result(array $data, bool $showServerName = true): void
 {
     echo "<!DOCTYPE html>\n<html><head>\n";
-    echo "<style>
+    echo "<title>Benchmark</title>
+<style>
        table a:link {
         color: #666;
         font-weight: bold;
@@ -307,7 +308,7 @@ function print_html_result(array $data, bool $showServerName = true)
     $result .= '<tr class="even"><td>PHP Version</td><td>' . h($data['sysinfo']['php_version']) . '</td></tr>';
     $result .= '<tr class="even"><td>Platform</td><td>' . h($data['sysinfo']['platform']) . '</td></tr>';
 
-    if ($showServerName == true) {
+    if ($showServerName === true) {
         $result .= '<tr class="even"><td>Server name</td><td>' . h($data['sysinfo']['server_name']) . '</td></tr>';
         $result .= '<tr class="even"><td>Server address</td><td>' . h($data['sysinfo']['server_addr']) . '</td></tr>';
     }
@@ -345,7 +346,7 @@ function print_html_result(array $data, bool $showServerName = true)
     echo "\n</body></html>";
 }
 
-function h($v)
+function h($v): string
 {
     return htmlentities($v);
 }

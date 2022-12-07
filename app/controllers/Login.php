@@ -10,7 +10,7 @@ class Login extends Controller
         }
         $data["page_title"] = "Login";
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $user = $this->model("User");
             $user->login($_GET);

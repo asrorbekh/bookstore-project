@@ -2,12 +2,13 @@
 
 abstract class Controller
 {
+    public array $data = [];
     protected function view($view, $data = []): void
     {
         if (file_exists("../app/views/" . strtolower($view) . ".php")) {
             include "../app/views/" . strtolower($view) . ".php";
         } else {
-            header("Location: /_404");
+            include "../app/views/404.php";
         }
     }
 

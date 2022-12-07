@@ -8,7 +8,7 @@ class Database
     public static function get(): object
     {
         if (!self::$factory) {
-            self::$factory = new Database();
+            self::$factory = new self();
         }
         return self::$factory;
     }
@@ -31,6 +31,6 @@ class Database
 
     public function __destruct()
     {
-        return $this->connection = null;
+        $this->connection = null;
     }
 }

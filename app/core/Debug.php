@@ -11,7 +11,7 @@ class Debug
         }
 
         if ($exit) {
-            exit;
+            exit();
         }
     }
 }

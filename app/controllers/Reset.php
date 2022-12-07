@@ -10,7 +10,7 @@ class Reset extends Controller
         }
         $data["page_title"] = "Reset";
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $user = $this->model("User");
             $user->reset($_POST);

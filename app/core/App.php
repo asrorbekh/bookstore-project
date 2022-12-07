@@ -4,10 +4,10 @@ class App
 {
     private mixed $controller = "Home";
     private string $method = "index";
-    private array $params = [];
 
-    public function __construct()
+    public function run(): void
     {
+        $this->setSession();
         $url = $this->getUrl();
 
         if (file_exists("../app/controllers/" . ucwords($url[0]) . ".php")) {
@@ -24,17 +24,25 @@ class App
         }
 
         try {
-            $this->params = $url ? array_values($url) : [];
-            call_user_func_array([$this->controller, $this->method], $this->params);
+            $params = $url ? array_values($url) : [];
+            call_user_func_array([$this->controller, $this->method], $params);
         } catch (Error $e) {
+            http_response_code(404);
             Debug::get($e);
             // header("Location: /_404");
         }
+
     }
 
     private function getUrl(): array
     {
         $url = $_GET['url'] ?? "home";
         return explode("/", filter_var(trim($url, "/"), FILTER_SANITIZE_URL));
+    }
+
+    private function setSession():void
+    {
+        session_name('session_id');
+        session_start();
     }
 }

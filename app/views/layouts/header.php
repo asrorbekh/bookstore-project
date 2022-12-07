@@ -10,6 +10,7 @@
     <meta name="description"
           content="bookly — an online bookstore">
     <meta property="og:locale" content="uz_UZ">
+    <link rel="manifest" href="https://cdn.asrorbek.uz/assets/js/site.webmanifest?v=ngJ3Op0WNN" />
     <meta property="og:type" content="website">
     <meta property="og:title" content="An Online bookstore in Uzbeksitan • Bookly uz">
     <meta property="og:description"

@@ -14,7 +14,6 @@ class Login extends Controller
 
             $user = $this->model("User");
             $user->login($_GET);
-            Debug::get($user);
         }
 
         $this->view("market/login", $data);
